@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
+import "./covers.css";
 
 export const metadata: Metadata = {
   title: "Alberto Muñoz’s Digital Library",
