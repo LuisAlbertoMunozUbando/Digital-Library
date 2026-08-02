@@ -3,8 +3,26 @@
 import { useMemo, useState } from "react";
 
 const DRIVE_FOLDER = "https://drive.google.com/drive/folders/1CJEmpfH7uUlx295U3lH7txH5Cq6tJFg_?usp=sharing";
+const GITHUB_REPOSITORY = "https://github.com/LuisAlbertoMunozUbando/Digital-Library";
 
-const documents = [
+type ResourceLink = {
+  label: string;
+  url: string;
+  kind: "primary" | "secondary";
+};
+
+type LibraryDocument = {
+  title: string;
+  type: string;
+  year: string;
+  category: string;
+  icon: string;
+  description: string;
+  tags: string[];
+  resources: ResourceLink[];
+};
+
+const documents: LibraryDocument[] = [
   {
     title: "GPU-Accelerated Inverse Structural Anastylosis",
     type: "Research Paper",
@@ -13,6 +31,10 @@ const documents = [
     icon: "🧱",
     description: "Inverse reconstruction of block structures from collapse dynamics using GPU-accelerated rigid-body simulation.",
     tags: ["GPU", "Simulation", "Inverse Problems"],
+    resources: [
+      { label: "View paper", url: "https://arxiv.org/abs/2606.28394", kind: "primary" },
+      { label: "GitHub", url: GITHUB_REPOSITORY, kind: "secondary" },
+    ],
   },
   {
     title: "Behind Python: The Languages That Power AI",
@@ -22,6 +44,10 @@ const documents = [
     icon: "🐍",
     description: "An accessible exploration of the systems languages and software layers that support modern AI workloads.",
     tags: ["AI", "Python", "Computing"],
+    resources: [
+      { label: "View paper", url: "https://arxiv.org/abs/2606.18141", kind: "primary" },
+      { label: "GitHub", url: GITHUB_REPOSITORY, kind: "secondary" },
+    ],
   },
   {
     title: "Taming the LLM: Reliable Task Planning for Robotics",
@@ -31,6 +57,10 @@ const documents = [
     icon: "🤖",
     description: "Reliable robotic task planning through parsing, grounding and structured interaction with large language models.",
     tags: ["LLM", "Planning", "Grounding"],
+    resources: [
+      { label: "View documents", url: DRIVE_FOLDER, kind: "primary" },
+      { label: "GitHub", url: GITHUB_REPOSITORY, kind: "secondary" },
+    ],
   },
   {
     title: "MicroClinic: Ultra-Low-Parameter Medical Image Analysis",
@@ -40,6 +70,10 @@ const documents = [
     icon: "🩺",
     description: "Compact neural-network methods for resource-efficient medical image analysis.",
     tags: ["Medical AI", "Vision", "Edge AI"],
+    resources: [
+      { label: "View documents", url: DRIVE_FOLDER, kind: "primary" },
+      { label: "GitHub", url: GITHUB_REPOSITORY, kind: "secondary" },
+    ],
   },
   {
     title: "Robotics, AI and Embedded Systems Teaching Materials",
@@ -47,8 +81,12 @@ const documents = [
     year: "Ongoing",
     category: "Teaching",
     icon: "🎓",
-    description: "Lecture notes, laboratory guides, notebooks and project resources for robotics and artificial intelligence.",
+    description: "Lecture notes, laboratory guides, downloadable Jupyter notebooks and project resources for robotics and artificial intelligence.",
     tags: ["Courses", "Laboratories", "Notebooks"],
+    resources: [
+      { label: "Open collection", url: DRIVE_FOLDER, kind: "primary" },
+      { label: "GitHub", url: GITHUB_REPOSITORY, kind: "secondary" },
+    ],
   },
   {
     title: "Technical Reports and Project Documents",
@@ -58,6 +96,10 @@ const documents = [
     icon: "🛠️",
     description: "Reports documenting robotic hands, teleoperation, perception, simulation and industrial robotics projects.",
     tags: ["Projects", "Reports", "Engineering"],
+    resources: [
+      { label: "Open collection", url: DRIVE_FOLDER, kind: "primary" },
+      { label: "GitHub", url: GITHUB_REPOSITORY, kind: "secondary" },
+    ],
   },
 ];
 
@@ -122,7 +164,7 @@ export default function Home() {
             <span className="kicker">Curated knowledge</span>
             <h2>Explore the library</h2>
           </div>
-          <p>Search by subject, document type or keyword. Each item links to the complete Google Drive collection.</p>
+          <p>Search by subject, document type or keyword. Every card now provides direct access to its available resources.</p>
         </div>
 
         <div className="toolbar">
@@ -168,7 +210,20 @@ export default function Home() {
                 <div className="tags">
                   {document.tags.map((tag) => <span key={tag}>{tag}</span>)}
                 </div>
-                <a href={DRIVE_FOLDER} target="_blank" rel="noreferrer">View documents <span>↗</span></a>
+                <div className="resourceLinks">
+                  {document.resources.map((resource) => (
+                    <a
+                      key={`${document.title}-${resource.label}`}
+                      className={`resourceLink ${resource.kind}`}
+                      href={resource.url}
+                      target="_blank"
+                      rel="noreferrer"
+                    >
+                      <span>{resource.label}</span>
+                      <span aria-hidden="true">↗</span>
+                    </a>
+                  ))}
+                </div>
               </div>
             </article>
           ))}
@@ -206,7 +261,7 @@ export default function Home() {
       <footer className="footer shell">
         <div className="brand"><span className="brandMark">AM</span><span>Alberto Muñoz’s Digital Library</span></div>
         <p>Research · Teaching · Technology</p>
-        <a href="https://github.com/LuisAlbertoMunozUbando/Digital-Library" target="_blank" rel="noreferrer">GitHub ↗</a>
+        <a href={GITHUB_REPOSITORY} target="_blank" rel="noreferrer">GitHub ↗</a>
       </footer>
     </main>
   );
