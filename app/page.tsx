@@ -9,6 +9,7 @@ const LINKEDIN = "https://www.linkedin.com/in/luisalbertomunozubando/";
 const SCHOLAR = "https://scholar.google.com/citations?user=3o9-OssAAAAJ&hl=en";
 const TEC = "https://tec.mx/";
 const FINANCIERO = "https://www.elfinanciero.com.mx/opinion/alberto-munoz/";
+const CV_LINK = "https://drive.google.com/drive/folders/1CHebc_zq2tqAFXia0u8DSCm8Cplog53K?usp=sharing";
 const EMAIL = "mailto:amunoz@tec.mx";
 
 const categories = ["All", ...Array.from(new Set(documents.map((document) => document.category)))];
@@ -46,7 +47,13 @@ export default function Home() {
               <a href={SCHOLAR} target="_blank" rel="noreferrer">Google Scholar ↗</a>
             </div>
           </div>
-          <div className="portraitPanel"><img src="/profile/alberto-munoz.jpg" alt="Dr. Alberto Muñoz" /></div>
+          <div className="profileMedia">
+            <div className="portraitPanel"><img src="/profile/alberto-munoz.jpg" alt="Dr. Alberto Muñoz" /></div>
+            <a className="cvPanel" href={CV_LINK} target="_blank" rel="noreferrer" aria-label="Open Alberto Muñoz CV in Google Drive">
+              <img src="/profile/cv.png" alt="Alberto Muñoz curriculum vitae" />
+              <span>Open CV ↗</span>
+            </a>
+          </div>
         </div>
 
         <div className="affiliations shell" id="profile">
