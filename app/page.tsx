@@ -8,6 +8,7 @@ const NVIDIA_PROFILE = "https://www.nvidia.com/en-us/training/instructor-directo
 const LINKEDIN = "https://www.linkedin.com/in/luisalbertomunozubando/";
 const SCHOLAR = "https://scholar.google.com/citations?user=3o9-OssAAAAJ&hl=en";
 const TEC = "https://tec.mx/";
+const FINANCIERO = "https://www.elfinanciero.com.mx/opinion/alberto-munoz/";
 const EMAIL = "mailto:amunoz@tec.mx";
 
 const categories = ["All", ...Array.from(new Set(documents.map((document) => document.category)))];
@@ -52,6 +53,7 @@ export default function Home() {
           <a className="affiliationCard tec" href={TEC} target="_blank" rel="noreferrer"><img src="/profile/tec-logo.png" alt="Tecnológico de Monterrey" /></a>
           <a className="affiliationCard nvidia" href={NVIDIA_PROFILE} target="_blank" rel="noreferrer"><img src="/profile/nvidia-logo.png" alt="NVIDIA instructor profile" /><span>NVIDIA Deep Learning Institute instructor profile ↗</span></a>
           <div className="affiliationCard robotics"><img src="/profile/robotics-computing.png" alt="Robotics Computing — Complex and Intelligent Interaction Innovation Systems" /></div>
+          <a className="affiliationCard financiero" href={FINANCIERO} target="_blank" rel="noreferrer" aria-label="Read Alberto Muñoz in El Financiero"><img src="/profile/elfinanciero.png" alt="El Financiero" /></a>
         </div>
 
         <div className="stats shell" aria-label="Library highlights"><div><strong>{documents.length}</strong><span>documents online</span></div><div><strong>30+</strong><span>years in research</span></div><div><strong>100+</strong><span>theses supervised</span></div></div>
