@@ -26,6 +26,11 @@ body { background:#fff !important; color:var(--ink); }
 .affiliationCard img { display:block; width:100%; max-height:110px; object-fit:contain; }
 .affiliationCard.nvidia { flex-direction:column; gap:12px; color:var(--tec-blue); font-size:12px; font-weight:800; text-align:center; }
 .affiliationCard.nvidia img { max-height:58px; }
+.fv2kPromo { margin-top:34px; }
+.fv2kPromo a { position:relative; display:block; overflow:hidden; border:1px solid var(--line); border-radius:22px; background:#fff; box-shadow:0 14px 40px rgba(25,52,91,.10); transition:transform .2s ease,box-shadow .2s ease; }
+.fv2kPromo a:hover { transform:translateY(-4px); box-shadow:0 22px 54px rgba(25,52,91,.16); }
+.fv2kPromo img { display:block; width:100%; height:auto; }
+.fv2kPromo span { position:absolute; right:18px; bottom:18px; padding:11px 16px; border-radius:999px; background:rgba(0,57,166,.94); color:#fff; font-size:13px; font-weight:800; box-shadow:0 8px 20px rgba(0,0,0,.16); }
 .stats { width:min(1160px,calc(100% - 40px)) !important; margin:42px auto 0 !important; padding:30px 0 54px !important; border-top:1px solid var(--line) !important; color:var(--ink); }
 .stats span { color:var(--muted) !important; }
 .library { background:#fff; }
@@ -37,4 +42,4 @@ body { background:#fff !important; color:var(--ink); }
 .aboutLinks { display:flex; flex-wrap:wrap; gap:18px; margin-top:22px; }
 .footer { background:#fff; }
 @media (max-width:900px){ .heroGrid{grid-template-columns:1fr;gap:34px}.profileMedia{justify-self:start;width:min(100%,520px)}.affiliations{grid-template-columns:1fr 1fr}.affiliationCard.robotics{grid-column:1/-1} }
-@media (max-width:620px){ .heroGrid{padding-top:50px}.profileMedia{grid-template-columns:1fr 1fr;gap:10px}.portraitPanel img,.cvPanel img{min-height:260px}.affiliations{grid-template-columns:1fr}.affiliationCard.robotics{grid-column:auto}.contactLinks{flex-direction:column}.stats{display:grid!important;grid-template-columns:1fr 1fr;gap:22px}.stats div:last-child{grid-column:1/-1} }
+@media (max-width:620px){ .heroGrid{padding-top:50px}.profileMedia{grid-template-columns:1fr 1fr;gap:10px}.portraitPanel img,.cvPanel img{min-height:260px}.affiliations{grid-template-columns:1fr}.affiliationCard.robotics{grid-column:auto}.contactLinks{flex-direction:column}.fv2kPromo span{position:static;display:block;border-radius:0;text-align:center}.stats{display:grid!important;grid-template-columns:1fr 1fr;gap:22px}.stats div:last-child{grid-column:1/-1} }
